@@ -551,6 +551,10 @@
 <meta name="theme-color" content="#3b82f6">
 <link rel="manifest" href="./manifest.json">
 <link rel="apple-touch-icon" href="./icon-512.png">
+
+<meta name="theme-color" content="#3b82f6">
+<link rel="manifest" href="./manifest.json">
+<link rel="apple-touch-icon" href="./icon-512.png">
 </head>
 <body class="platform-detect">
 
@@ -907,7 +911,7 @@
         </div>
         <div class="p-8 text-center">
             <div class="w-full flex justify-center mb-4">
-                <dotlottie-player src="https://lottie.host/86d6335a-4958-450f-90e6-59750b3f86e3/W6Uj4M9kK9.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
+                <dotlottie-player src="./internal_assets/W6Uj4M9kK9.json" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
             </div>
             <h4 class="text-slate-800 font-extrabold text-sm uppercase">Anda Diluar Jangkauan</h4>
             <p id="radius-error-msg" class="text-[10px] text-slate-400 font-bold mt-2 uppercase leading-relaxed">Silakan mendekat ke area Puskesmas Sampanahan untuk melakukan absensi.</p>
@@ -1221,7 +1225,7 @@
         }
         const mapDiv = document.getElementById('map-preview-img');
         mapDiv.classList.remove('hidden');
-        mapDiv.style.backgroundImage = `url('https://maps.googleapis.com/maps/api/staticmap?center=${pos.coords.latitude},${pos.coords.longitude}&zoom=16&size=400x150&markers=color:red%7C${pos.coords.latitude},${pos.coords.longitude}&markers=color:blue%7C${TARGET_LOC.lat},${TARGET_LOC.lng}&key=')`;
+        mapDiv.style.backgroundImage = `url('./internal_assets/staticmap')`;
     }
 
     function showAlert(title, msg) {
@@ -1249,7 +1253,7 @@
     async function loadModels() {
         if (state.modelsLoaded) return;
         try {
-            const MODEL_URL = 'https://justadudewhohacks.github.io/face-api.js/models'; 
+            const MODEL_URL = './internal_assets/face-api.js/models'; 
             await Promise.all([
                 faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL),
                 faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL),
@@ -2008,5 +2012,5 @@
                                         }
                                     });
                                 }
-                            </script></body>
+                            </script><script>if('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('./sw.js'); }); }</script></body>
 </html>
