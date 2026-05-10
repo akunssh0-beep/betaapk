@@ -1,0 +1,1 @@
+const C='pwa-v3.2-1778390844584';const A=["./","./manifest.json","./icon-512.png","./splash-screen.png","./sw.js"];self.addEventListener('install',e=>e.waitUntil(caches.open(C).then(c=>c.addAll(A))));self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request))));
